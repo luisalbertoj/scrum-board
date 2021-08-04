@@ -1,3 +1,3 @@
-:table: Scrum Board
+🔲 Scrum Board
 ---
 Scrum board build in fedesoft course
