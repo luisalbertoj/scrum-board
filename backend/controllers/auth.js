@@ -6,7 +6,7 @@ const login = async (req, res) => {
     const user = await User.findOne({ email: req.body.email});
     if(!user) return res.status(403).send({ message: 'Invalid credentials'});
     try {
-        const hash = bcrypt.compare(user.password, req.body.password);
+        const hash = bcrypt.compare(req.body.password, user.password);
         if(!hash) return res.status(403).send({ message: 'Invalid credentials'});
         const jwt = user.generateJWT();
         return res.status(200).send({jwt});
